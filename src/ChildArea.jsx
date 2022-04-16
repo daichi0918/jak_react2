@@ -1,4 +1,4 @@
-import {memo} from "react";
+import { memo } from "react";
 
 const style = {
   width: "100%",
@@ -6,8 +6,8 @@ const style = {
   backgroundColor: "khaki"
 };
 
-export const ChildArea = (props) => {
-  const { open } = props;
+export const ChildArea = memo((props) => {
+  const { open, onClickClose } = props;
 
   console.log("ChildAreaがレンダリングされた");
 
@@ -20,8 +20,9 @@ export const ChildArea = (props) => {
       {open ? (
         <div style={style}>
           <p>子コンポーネント</p>
+          <button onClick={onClickClose}>閉じる</button>
         </div>
       ) : null}
     </>
   );
-};
+});
